@@ -139,7 +139,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
     model = config.get(CONF_MODEL)
 
     _LOGGER.info("Initializing with host %s (token %s...)", host, token[:5])
-    unique_id = None
+    unique_id = f"{host}-{token[:5]}"
 
     if model is None:
         miio_device = Device(host, token)
